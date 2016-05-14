@@ -1,3 +1,5 @@
 #!/usr/bin/env ruby
 
-puts "Hello World"
+require './lib/video_game_reviews'
+
+VideoGameReviews::CLI.new.call
