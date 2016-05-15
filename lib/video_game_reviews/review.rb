@@ -11,7 +11,7 @@ class VideoGameReviews::Review
   end
 
   def open_in_browser
-   system("open '#{review.review_url}'")
+   system("open '#{review_url}'")
   end
 
 end

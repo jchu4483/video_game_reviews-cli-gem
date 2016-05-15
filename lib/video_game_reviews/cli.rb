@@ -4,7 +4,6 @@ class VideoGameReviews::CLI
     VideoGameReviews::Scraper.scrape_titles
     puts "Welcome to Video Games Review CLI! "
     main_menu
-
   end
 
   def main_menu
@@ -30,6 +29,7 @@ class VideoGameReviews::CLI
 
 
   def list_reviews
+    puts "-------------------------------------------------------------------------"
     puts "Here's a list of reviews"
     VideoGameReviews::Review.all.each.with_index(1) do |review, i|
       puts "#{i}. #{review.name}"
@@ -38,15 +38,24 @@ class VideoGameReviews::CLI
     answer = gets.strip
     if answer.to_i-1 <= VideoGameReviews::Review.all.size
       review = VideoGameReviews::Review.all[answer.to_i-1]
-      puts "#{review.name}             #{review.genre}          Score:#{review.score}"
-      puts "____________________________________________________________________"
+      puts "#{review.name}                     #{review.genre}                Score:#{review.score}"
+      puts "-------------------------------------------------------------------------"
       puts review.full_review
 
-      puts "Would you like to read the full review in broswer?"
+      puts "Would you like to read the full review in browser? Type yes or no or exit to back back to the main menu:"
       input = gets.strip
       if ["Y", "YES"].include?(input.upcase)
-        self.open_in_browser
+        review.open_in_browser
+      elsif ["N", "NO"].include?(input.upcase)
+        list_reviews
+      else
+        exit
       end
+
+    elsif answer == "exit"
+      exit
+    else
+      "Invalid input, try again"
     end
   end
 
