@@ -1,16 +1,31 @@
 class VideoGameReviews::Review
-  attr_accessor :name, :score, :url
-  @@reviews
+  attr_accessor :name, :score, :review_url, :genre, :page_link, :full_review
+  @@reviews = []
 
-  def self.scrape_titles
-    @doc = Nokogiri::HTML(open("http://www.ign.com/games/reviews?"))
+  def self.all
+    @@reviews
+  end
 
-    titles = @doc.search("#item-list div.itemList div.itemList-item").each do |review|
-      binding.pry
-      new_review = VideoGameReviews::Review.new
-      new_review.name = review.search("h3 a").text.split("\n").collect {|info| info.strip!}.delete_if {|info| info == nil}
+  def save
+    @@reviews << self
+  end
 
-    end
+  def open_in_browser
+   system("open '#{review.review_url}'")
   end
 
 end
+
+=begin
+  def self.scrape_page_link
+    @@review_urls.each do |url|
+
+  end
+
+end
+
+new_review.review_url = review.search("div.up-com.grid_7 > ul > li > a").attr("href").value
+@review_details = Nokogiri::HTML(open(new_review.review_url))
+=end
+
+#review_details.search("div.article-content > p").text
