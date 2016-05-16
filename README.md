@@ -22,7 +22,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: The instructions are explained when you run the user interface. At each point, you will be prompted for confirmation and acceptable inputs will be described to you.
+The instructions are explained when you run the user interface. At each point, you will be prompted for confirmation and acceptable inputs will be described to you.
 If you'd like to read more about a specific game review, just type the corresponding number in the list that is shown to you. Once you are in an individual review, you can type "yes" or "no" to read the full review in your web browser. To exit out of the program, just type "exit".
 
 ## Development
