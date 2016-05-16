@@ -15,13 +15,18 @@ Gem::Specification.new do |spec|
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
-  spec.bindir        = "bin"
-  spec.executables   << 'video_game_reviews'
-  
+  spec.bindir        = "exe"
+  spec.executables   << "video_game_reviews"
+  spec.require_paths = ["lib"]
 
   spec.add_development_dependency "bundler", "~> 1.11"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.0"
   spec.add_development_dependency "pry"
   spec.add_development_dependency "nokogiri"
+  spec.add_development_dependency "require_all", "~> 1.3", ">= 1.3.3"
 end
+
+
+
+#["lib/video_game_reviews/cli.rb", "lib/video_game_reviews/review.rb", "lib/video_game_reviews/scraper.rb", "lib/video_game_reviews/version.rb", "lib/video_game_reviews.rb"]
