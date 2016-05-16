@@ -3,14 +3,13 @@ class VideoGameReviews::CLI
   def call
     VideoGameReviews::Scraper.scrape_titles
     puts "Welcome to Video Games Review CLI! "
-    main_menu
+    list_reviews
   end
 
   def main_menu
-
-    puts "Enter a number to get a list of reviews or to exit:"
+    puts "Enter a number to get a list of reviews or type 'exit' to exit the program:"
     puts "1. List Reviews"
-    puts "3. Exit"
+    puts "2. Exit"
 
     input = nil
     while input != "exit"
@@ -25,8 +24,6 @@ class VideoGameReviews::CLI
       end
     end
   end
-
-
 
   def list_reviews
     puts "-------------------------------------------------------------------------"
@@ -52,6 +49,7 @@ class VideoGameReviews::CLI
       input = gets.strip
       if ["Y", "YES"].include?(input.upcase)
         review.open_in_browser
+        main_menu
       else ["N", "NO"].include?(input.upcase)
         main_menu
       end

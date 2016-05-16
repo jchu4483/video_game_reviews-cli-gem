@@ -1,5 +1,5 @@
 class VideoGameReviews::Review
-  attr_accessor :name, :score, :review_url, :genre, :page_link, :full_review, :author, :date
+  attr_accessor :name, :score, :review_url, :genre, :full_review, :author, :date
   @@reviews = []
 
   def self.all
