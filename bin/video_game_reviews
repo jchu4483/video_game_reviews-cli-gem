@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
 
-require './lib/video_game_reviews'
+require 'video_game_reviews'
 
 VideoGameReviews::CLI.new.call
