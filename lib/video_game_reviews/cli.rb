@@ -7,21 +7,22 @@ class VideoGameReviews::CLI
   end
 
   def main_menu
-    puts "Enter a number to get a list of reviews or type 'exit' to exit the program:"
+    puts "-------------------------------------------------------------------------"
+    puts ""
+    puts "Type '1' to get a list of reviews or type 'exit' to exit the program:"
     puts "1. List Reviews"
     puts "2. Exit"
 
     input = nil
-    while input != "exit"
-      input = gets.strip
-      case input
-      when "1"
-        list_reviews
-      when "exit"
-        exit
-      else
-        puts "Invalid input, please try again:"
-      end
+    input = gets.strip
+    case input
+    when "1"
+      list_reviews
+    when "exit"
+      exit
+    else
+      puts "Invalid input, please try again:"
+      main_menu
     end
   end
 
@@ -36,7 +37,9 @@ class VideoGameReviews::CLI
   end
 
   def get_review
-    puts "Enter a number of the review to read more of the review:"
+    puts "-------------------------------------------------------------------------"
+    puts ""
+    puts "Enter a number of the review to read the review:"
     answer = gets.strip
     if answer.to_i-1 <= VideoGameReviews::Review.all.size
       review = VideoGameReviews::Review.all[answer.to_i-1]
