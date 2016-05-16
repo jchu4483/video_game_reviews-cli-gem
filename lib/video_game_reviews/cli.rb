@@ -34,15 +34,20 @@ class VideoGameReviews::CLI
     VideoGameReviews::Review.all.each.with_index(1) do |review, i|
       puts "#{i}. #{review.name}"
     end
+    get_review
+  end
+
+  def get_review
     puts "Enter a number of the review to read more of the review:"
     answer = gets.strip
     if answer.to_i-1 <= VideoGameReviews::Review.all.size
       review = VideoGameReviews::Review.all[answer.to_i-1]
-      puts "#{review.name}                     #{review.genre}                Score:#{review.score}"
-      puts "-------------------------------------------------------------------------"
+      puts "#{review.name}        Genre: #{review.genre}        Score: #{review.score}        #{review.author}"
+      puts "--------------------------------------------------------------------------------------------------"
       puts review.full_review
+      puts "--------------------------------------------------------------------------------------------------"
 
-      puts "Would you like to read the full review in browser? Type yes or no or exit to back back to the main menu:"
+      puts "Would you like to read the full review in browser? Type yes or no to get back to the main menu:"
       input = gets.strip
       if ["Y", "YES"].include?(input.upcase)
         review.open_in_browser
@@ -51,11 +56,6 @@ class VideoGameReviews::CLI
       else
         exit
       end
-
-    elsif answer == "exit"
-      exit
-    else
-      "Invalid input, try again"
     end
   end
 
