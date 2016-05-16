@@ -10,6 +10,7 @@ class VideoGameReviews::Scraper
       new_review.genre = review.search(".item-details span.item-genre").text.strip!
       new_review.review_url = review.search("div.up-com.grid_7 > ul > li > a").attr("href").value
       review_details = Nokogiri::HTML(open(new_review.review_url))
+      new_review.date = review_details.search("span.article-publish-date").text.gsub("\n","").strip
       new_review.full_review = review_details.search("div.article-content > p:nth-child(-n+4)").text
       new_review.author = review_details.search("span > span").text.split("\n").collect {|info| info.strip!}[1]
       new_review.save
