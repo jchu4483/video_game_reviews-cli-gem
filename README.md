@@ -1,8 +1,8 @@
 # VideoGameReviews
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/video_game_reviews`. To experiment with that code, run `bin/console` for an interactive prompt.
+Welcome to Video Game Reviews CLI Gem!
 
-TODO: Delete this and the text above, and describe your gem
+This gem uses Nokogiri to scrape a list of recent video game reviews from http://www.ign.com/games/reviews? It returns the 25 most recent reviews from the site. It returns the title of the review, the author, the date of the review, the first paragraph of the full written review and, if the author has given a score, it will return the numeric score as well. If you'd like to read more about a specific review, the program can open the full review directly in your browser.
 
 ## Installation
 
@@ -22,7 +22,8 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+TODO: The instructions are explained when you run the user interface. At each point, you will be prompted for confirmation and acceptable inputs will be described to you.
+If you'd like to read more about a specific game review, just type the corresponding number in the list that is shown to you. Once you are in an individual review, you can type "yes" or "no" to read the full review in your web browser. To exit out of the program, just type "exit".
 
 ## Development
 
@@ -38,4 +39,3 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/[USERN
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
